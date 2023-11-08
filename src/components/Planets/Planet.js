@@ -6,12 +6,11 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { addPlanet } from '../../store/planet'
 import { useHistory } from "react-router-dom";
-import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
 
 
-const Planet = ({ data, key }) => {
+const Planet = ({ data }) => {
 
   const keys = Object.keys(data);
   const planet = useSelector(((state) => state.planet.data))
@@ -19,10 +18,7 @@ const Planet = ({ data, key }) => {
 
   const [modalOpen, setModalOpen] = useState(false)
 
-
-
   const history = useHistory();
-
 
   const handlePlanetClick = (data) => {
     dispatch(addPlanet(data))
@@ -32,18 +28,12 @@ const Planet = ({ data, key }) => {
   }
   const displayKeys = keys.slice(0, 8)
 
-
   const toggleModal = () => {
     setModalOpen(!modalOpen)
   }
 
-
-
-
   return (
     <div>
-
-
 
       <Table striped bordered>
         <tbody>
